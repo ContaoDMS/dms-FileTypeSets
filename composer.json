@@ -20,7 +20,7 @@
 		"php":">=5.3",
 		"contao/core":">=2.9.5,<3.0.0-dev",
 		"contao-community-alliance/composer-installer":"*",
-		"cliffparnitzky/document-management-system"
+		"cliffparnitzky/document-management-system":">=2.2.0"
 	},
 	"extra":{
 		"contao":{
