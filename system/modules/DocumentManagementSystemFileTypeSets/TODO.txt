@@ -1,0 +1,8 @@
+DONE
+- Backend View fertig stellen
+- file typen toLowerCase (DMS auch) ... Hinweis dass automatisch sortiert und klein geschrieben wird
+
+TODO
+- in Kategorie View einbauen
+- Modification Klassen implementieren
+- Project auf Github

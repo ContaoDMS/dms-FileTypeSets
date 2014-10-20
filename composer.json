@@ -1,0 +1,35 @@
+{
+	"name":"cliffparnitzky/document-management-system-file-type-sets",
+	"description":"Provides file type sets for the document management system.",
+	"keywords":["contao", "dms", "document", "management", "file type"],
+	"type":"contao-module",
+	"license":"LGPL-3.0+",
+	"authors":[
+		{
+			"name":"Cliff Parnitzky",
+			"email":"contao@cliff-parnitzky.de",
+			"role":"Developer"
+		}
+	],
+	"support":{
+		"email":"contao@cliff-parnitzky.de",
+		"issues":"https://github.com/ContaoDMS/dms_FileTypeSets/issues",
+		"source":"https://github.com/ContaoDMS/dms_FileTypeSets"
+	},
+	"require":{
+		"php":">=5.3",
+		"contao/core":">=2.9.5,<3.0.0-dev",
+		"contao-community-alliance/composer-installer":"*",
+		"cliffparnitzky/document-management-system"
+	},
+	"extra":{
+		"contao":{
+			"sources":{
+				"system/modules/DocumentManagementSystemFileTypeSets":"system/modules/DocumentManagementSystemFileTypeSets"
+			}
+		},
+		"branch-alias": {
+			"dev-master": "1.0.x-dev"
+		}
+	}
+}
