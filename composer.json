@@ -13,8 +13,8 @@
 	],
 	"support":{
 		"email":"contao@cliff-parnitzky.de",
-		"issues":"https://github.com/ContaoDMS/dms_FileTypeSets/issues",
-		"source":"https://github.com/ContaoDMS/dms_FileTypeSets"
+		"issues":"https://github.com/ContaoDMS/dms-FileTypeSets/issues",
+		"source":"https://github.com/ContaoDMS/dms-FileTypeSets"
 	},
 	"require":{
 		"php":">=5.3",

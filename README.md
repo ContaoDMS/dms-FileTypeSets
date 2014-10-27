@@ -14,7 +14,7 @@ Install it manually or via [composer](https://packagist.org/packages/cliffparnit
 Tracker
 -------
 
-https://github.com/ContaoDMS/dms_FileTypeSets/issues
+https://github.com/ContaoDMS/dms-FileTypeSets/issues
 
 
 Compatibility
@@ -33,6 +33,6 @@ Dependency
 Screenshots
 -----------
 
-![Screenshot: backend view](https://raw.github.com/ContaoDMS/dms_FileTypeSets/master/screenshot_backend_view.jpg)
+![Screenshot: backend view](https://raw.github.com/ContaoDMS/dms-FileTypeSets/master/screenshot_backend_view.jpg)
 
-![Screenshot: categories view](https://raw.github.com/ContaoDMS/dms_FileTypeSets/master/screenshot_categories_view.jpg)
+![Screenshot: categories view](https://raw.github.com/ContaoDMS/dms-FileTypeSets/master/screenshot_categories_view.jpg)
