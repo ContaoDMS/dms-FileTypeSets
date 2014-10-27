@@ -89,15 +89,15 @@ class tl_dms_categories_dms_file_type_sets extends tl_dms_categories
 	 */
 	public function addIcon($row, $label, DataContainer $dc=null, $imageAttribute='', $blnReturnImage=false, $blnProtected=false)
 	{
-		$arrFileTypeSetIds = deserialize($row['file_type_sets']);
-		if (count($arrFileTypeSetIds) > 0)
+		$arrFileTypes = array();
+		if (strlen($row['file_types']) > 0)
 		{
-			$arrFileTypes = array();
-			if (strlen($row['file_types']) > 0)
-			{
-				$arrFileTypes = array_merge($arrFileTypes, explode(",", $row['file_types']));
-			}
-			
+			$arrFileTypes = array_merge($arrFileTypes, explode(",", $row['file_types']));
+		}
+		
+		$arrFileTypeSetIds = deserialize($row['file_type_sets']);
+		if (!empty($arrFileTypeSetIds))
+		{
 			$objFileTypeSets = $this->Database->prepare("SELECT file_types FROM tl_dms_file_type_sets WHERE id IN (" . implode(",", $arrFileTypeSetIds) . ") AND published = 1")
 								->execute();
 		
@@ -105,12 +105,16 @@ class tl_dms_categories_dms_file_type_sets extends tl_dms_categories
 			{
 				$arrFileTypes = array_merge($arrFileTypes, explode(",", $objFileTypeSets->file_types));
 			}
-			
-			$arrFileTypes = array_unique($arrFileTypes);
-			asort($arrFileTypes);
-			
-			$label .= '<span style="color:#b3b3b3; padding-left:3px;">[' . implode(",", $arrFileTypes) . ']</span>';
 		}
+		
+		$arrFileTypes = array_unique($arrFileTypes);
+		asort($arrFileTypes);
+		
+		if (!empty($arrFileTypes))
+		{
+			$label .= '<span style="color:#b3b3b3; padding-left:3px;">[' . implode(",", $arrFileTypes) . ']</span>';;
+		}
+		
 		return parent::addIcon($row, $label, $dc, $imageAttribute, $blnReturnImage, $blnProtected);
 	}
 }
