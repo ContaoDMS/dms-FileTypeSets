@@ -23,3 +23,14 @@ CREATE TABLE `tl_dms_file_type_sets` (
   `published` char(1) NOT NULL default '',
   PRIMARY KEY  (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Table `tl_dms_categories`
+--
+
+CREATE TABLE `tl_dms_categories` (
+  `file_type_sets` blob NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
