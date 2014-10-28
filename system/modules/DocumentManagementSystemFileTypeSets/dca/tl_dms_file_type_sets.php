@@ -267,11 +267,7 @@ class tl_dms_file_type_sets extends Backend
 	{
 		if (strlen($varValue) > 0)
 		{
-			$varValue = str_replace(' ', '', $varValue);
-			$varValue = strtolower($varValue);
-			$arrFileTypes = explode(",", $varValue);
-			$arrFileTypes = array_unique($arrFileTypes);
-			asort($arrFileTypes);
+			$arrFileTypes = DmsUtils::getUniqueFileTypes($varValue);
 			$varValue = implode(",", $arrFileTypes);
 		}
 		

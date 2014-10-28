@@ -89,11 +89,7 @@ class tl_dms_categories_dms_file_type_sets extends tl_dms_categories
 	 */
 	public function addIcon($row, $label, DataContainer $dc=null, $imageAttribute='', $blnReturnImage=false, $blnProtected=false)
 	{
-		$arrFileTypes = array();
-		if (strlen($row['file_types']) > 0)
-		{
-			$arrFileTypes = array_merge($arrFileTypes, explode(",", $row['file_types']));
-		}
+		$arrFileTypesOfSets = array();
 		
 		$arrFileTypeSetIds = deserialize($row['file_type_sets']);
 		if (!empty($arrFileTypeSetIds))
@@ -103,12 +99,11 @@ class tl_dms_categories_dms_file_type_sets extends tl_dms_categories
 		
 			while($objFileTypeSets->next())
 			{
-				$arrFileTypes = array_merge($arrFileTypes, explode(",", $objFileTypeSets->file_types));
+				$arrFileTypesOfSets = array_merge($arrFileTypesOfSets, explode(",", $objFileTypeSets->file_types));
 			}
 		}
 		
-		$arrFileTypes = array_unique($arrFileTypes);
-		asort($arrFileTypes);
+		$arrFileTypes = DmsUtils::getUniqueFileTypes($row['file_types'], $arrFileTypesOfSets);
 		
 		if (!empty($arrFileTypes))
 		{
