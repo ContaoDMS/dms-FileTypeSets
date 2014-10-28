@@ -23,40 +23,79 @@
  * PHP version 5
  * @copyright  Cliff Parnitzky 2014
  * @author     Cliff Parnitzky
- * @package    DocumentManagementSystem
+ * @package    DocumentManagementSystemFileTypeSets
  * @license    LGPL
  */
 
 /**
  * Class DmsFileTypeSetsModificator
- * The loader of the dms
+ * Modifies the files types.
  */
 class DmsFileTypeSetsModificator extends Controller
 {
 	/**
 	 * Current object instance (do not remove)
-	 * @var DmsLoader
+	 * @var DmsFileTypeSetsModificator
 	 */
-	protected static $objInstance; 
+	protected static $objInstance;
 	
+	/**
+	 * The List of published fil
+	 * @var array
+	 */
+	private $arrPublishedFileTypeSets = array();
+
 	/**
 	 * Initialize the object.
 	 */
 	protected function __construct()
 	{
 		parent::__construct();
-		
+
 		$this->import('Database');
-		
-		// TODO load all published file type sets here ....
+
+		$objFileTypeSets = $this->Database->prepare("SELECT id, file_types FROM tl_dms_file_type_sets WHERE published = 1")
+										  ->execute();
+
+		while ($objFileTypeSets->next())
+		{
+			$this->arrPublishedFileTypeSets[$objFileTypeSets->id] = $objFileTypeSets->file_types;
+		}
 	}
-	
+
+	/**
+	 * Return the current object instance (Singleton)
+	 * @return DmsFileTypeSetsModificator
+	 */
+	public static function getInstance()
+	{
+		if (!is_object(self::$objInstance))
+		{
+			self::$objInstance = new self();
+		}
+
+		return self::$objInstance;
+	}
+
 	/**
 	 * Modify loaded categories.
 	 */
 	public function addFileTypeSetsToCategory(Category $category, Database_Result $dbResultCategory)
 	{
-		// do custom modification here
+		$arrFileTypesOfSets = array();
+		$arrFileTypeSetIds = deserialize($dbResultCategory->file_type_sets);
+		if (!empty($arrFileTypeSetIds))
+		{
+			foreach($arrFileTypeSetIds as $arrFileTypeSetId)
+			{
+				$arrFileTypesOfSets = array_merge($arrFileTypesOfSets, explode(",", $this->arrPublishedFileTypeSets[$arrFileTypeSetId]));
+			}
+		
+		}
+		
+		$arrFileTypes = DmsUtils::getUniqueFileTypes($category->fileTypes, $arrFileTypesOfSets);
+		
+		$category->fileTypes = implode(",", $arrFileTypes);
 		return $category;
 	}
 }
