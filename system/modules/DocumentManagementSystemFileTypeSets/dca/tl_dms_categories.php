@@ -42,7 +42,7 @@ $GLOBALS['TL_DCA']['tl_dms_categories']['fields']['file_type_sets'] = array
 	'exclude'                 => true,
 	'inputType'               => 'checkbox',
 	'options_callback'        => array('tl_dms_categories_dms_file_type_sets', 'getActiveFileTypeSets'),
-	'eval'                    => array('tl_class'=>'w50', 'multiple'=>true)
+	'eval'                    => array('tl_class'=>'w50 clr', 'multiple'=>true)
 );
 
 /**
