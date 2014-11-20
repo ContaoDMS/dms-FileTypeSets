@@ -1,6 +1,6 @@
-[![Latest Version on Packagist](http://img.shields.io/packagist/v/cliffparnitzky/document-management-system-file-type-sets.svg?style=flat)](https://packagist.org/packages/cliffparnitzky/document-management-system-file-type-sets)
-[![Installations via composer per month](http://img.shields.io/packagist/dm/cliffparnitzky/document-management-system-file-type-sets.svg?style=flat)](https://packagist.org/packages/cliffparnitzky/document-management-system-file-type-sets)
-[![Installations via composer total](http://img.shields.io/packagist/dt/cliffparnitzky/document-management-system-file-type-sets.svg?style=flat)](https://packagist.org/packages/cliffparnitzky/document-management-system-file-type-sets)
+[![Latest Version on Packagist](http://img.shields.io/packagist/v/contao-dms/file-type-sets.svg?style=flat)](https://packagist.org/packages/contao-dms/file-type-sets)
+[![Installations via composer per month](http://img.shields.io/packagist/dm/contao-dms/file-type-sets.svg?style=flat)](https://packagist.org/packages/contao-dms/file-type-sets)
+[![Installations via composer total](http://img.shields.io/packagist/dt/contao-dms/file-type-sets.svg?style=flat)](https://packagist.org/packages/contao-dms/file-type-sets)
 
 Contao Extension: DocumentManagementSystemFileTypeSets
 ======================================================
@@ -12,7 +12,7 @@ Installation
 ------------
 
 The extension is not published in contao extension repository.
-Install it manually or via [composer](https://packagist.org/packages/contao-dms/file-type-sets).
+Install it manually or via composer: [contao-dms/file-type-sets](https://packagist.org/packages/contao-dms/file-type-sets).
 
 
 Tracker
@@ -25,7 +25,7 @@ Compatibility
 -------------
 
 - min. version: Contao 2.11.0
-- max. version: Contao 2.11.x
+- max. version: Contao 3.4.x
 
 
 Dependency
