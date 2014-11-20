@@ -12,7 +12,7 @@ Installation
 ------------
 
 The extension is not published in contao extension repository.
-Install it manually or via [composer](https://packagist.org/packages/cliffparnitzky/document-management-system-file-type-sets).
+Install it manually or via [composer](https://packagist.org/packages/contao-dms/file-type-sets).
 
 
 Tracker

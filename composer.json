@@ -1,5 +1,5 @@
 {
-	"name":"cliffparnitzky/document-management-system-file-type-sets",
+	"name":"contao-dms/file-type-sets",
 	"description":"Provides file type sets for the document management system.",
 	"keywords":["contao", "dms", "document", "management", "file type"],
 	"type":"contao-module",
@@ -20,7 +20,7 @@
 		"php":">=5.3",
 		"contao/core":">=2.11.0,<3.0.0-dev",
 		"contao-community-alliance/composer-installer":"*",
-		"cliffparnitzky/document-management-system":">=2.2.0"
+		"contao-dms/dms":">=2.2.0"
 	},
 	"extra":{
 		"contao":{
