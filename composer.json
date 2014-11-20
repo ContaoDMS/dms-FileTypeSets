@@ -20,7 +20,7 @@
 		"php":">=5.3",
 		"contao/core":">=2.11.0,<4.0.0-dev",
 		"contao-community-alliance/composer-installer":"*",
-		"contao-dms/dms":">=3.0.*"
+		"contao-dms/dms":">=3.0.0"
 	},
 	"extra":{
 		"contao":{
