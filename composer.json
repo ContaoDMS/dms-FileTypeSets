@@ -1,6 +1,6 @@
 {
 	"name":"contao-dms/file-type-sets",
-	"description":"Provides file type sets for the document management system.",
+	"description":"Provides file type sets for the Contao CMS.",
 	"keywords":["contao", "dms", "document", "management", "file type"],
 	"type":"contao-module",
 	"license":"LGPL-3.0+",
@@ -18,9 +18,12 @@
 	},
 	"require":{
 		"php":">=5.3",
-		"contao/core":">=2.11.0,<4.0.0-dev",
+		"contao/core":">=2.9.5,<3.4.0",
 		"contao-community-alliance/composer-installer":"*",
 		"contao-dms/dms":">=3.0.0"
+	},
+	"conflict": {
+		"contao/core": ">=3.0.0,<3.2.0"
 	},
 	"extra":{
 		"contao":{
