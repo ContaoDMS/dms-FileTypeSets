@@ -18,12 +18,9 @@
 	},
 	"require":{
 		"php":">=5.3",
-		"contao/core":">=2.9.5,<3.4.0",
+		"contao/core":">=3.3.0,<3.4.0",
 		"contao-community-alliance/composer-installer":"*",
 		"contao-dms/dms":">=3.0.0"
-	},
-	"conflict": {
-		"contao/core": ">=3.0.0,<3.2.0"
 	},
 	"extra":{
 		"contao":{
