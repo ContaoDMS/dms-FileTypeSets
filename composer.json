@@ -18,9 +18,12 @@
 	},
 	"require":{
 		"php":">=5.3",
-		"contao/core":">=3.3.0,<3.4.0",
+		"contao/core":">=3.2.0,<3.5",
 		"contao-community-alliance/composer-installer":"*",
-		"contao-dms/dms":">=3.0.0"
+		"contao-dms/dms":">=3.1.0"
+	},
+	"conflict": {
+		"contao/core":"3.4.0,3.4.1,3.4.2"
 	},
 	"extra":{
 		"contao":{
@@ -29,7 +32,7 @@
 			}
 		},
 		"branch-alias": {
-			"dev-master": "1.1.x-dev"
+			"dev-master": "1.2.x-dev"
 		}
 	}
 }

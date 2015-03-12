@@ -11,8 +11,9 @@ Provides file type sets for the [[Contao DMS]](https://github.com/ContaoDMS/dms)
 Installation
 ------------
 
-The extension is not published in contao extension repository.
-Install it manually or via composer: [contao-dms/file-type-sets](https://packagist.org/packages/contao-dms/file-type-sets).
+Install the extension via composer: [contao-dms/file-type-sets](https://packagist.org/packages/contao-dms/file-type-sets).
+
+If you prefer to install it manually, download the latest release here: https://github.com/ContaoDMS/dms-FileTypeSets/releases
 
 
 Tracker
@@ -24,19 +25,19 @@ https://github.com/ContaoDMS/dms-FileTypeSets/issues
 Compatibility
 -------------
 
-- min. version: Contao 2.11.0
-- max. version: Contao 3.3.x
+- min. Contao version: >= 3.2.0
+- max. Contao version: <  3.5.0
 
 
 Dependency
 ----------
 
-- There are no dependencies to other extensions, that have to be installed.
+- This extension is dependent on the following extensions: [[contao-dms/dms]](https://packagist.org/packages/contao-dms/dms)
 
 
 Screenshots
 -----------
 
-![Screenshot: backend view](https://raw.github.com/ContaoDMS/dms-FileTypeSets/master/screenshot_backend_view.jpg)
+![Screenshot: backend view](screenshot_backend_view.jpg)
 
-![Screenshot: categories view](https://raw.github.com/ContaoDMS/dms-FileTypeSets/master/screenshot_categories_view.jpg)
+![Screenshot: categories view](screenshot_categories_view.jpg)

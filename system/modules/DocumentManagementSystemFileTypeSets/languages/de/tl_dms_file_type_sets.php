@@ -1,8 +1,8 @@
-<?php if (!defined('TL_ROOT')) die('You can not access this file directly!');
+<?php
 
 /**
  * Contao Open Source CMS
- * Copyright (C) 2005-2014 Leo Feyer
+ * Copyright (C) 2005-2015 Leo Feyer
  *
  * Formerly known as TYPOlight Open Source CMS.
  *
@@ -21,7 +21,7 @@
  * Software Foundation website at <http://www.gnu.org/licenses/>.
  *
  * PHP version 5
- * @copyright  Cliff Parnitzky 2014
+ * @copyright  Cliff Parnitzky 2014-2015
  * @author     Cliff Parnitzky
  * @package    DocumentManagementSystemFileTypeSets
  * @license    LGPL
@@ -45,11 +45,11 @@ $GLOBALS['TL_LANG']['tl_dms_file_type_sets']['publish_legend']    = 'Veröffentl
 /**
  * Buttons
  */
-$GLOBALS['TL_LANG']['tl_dms_file_type_sets']['new']        = array('Neues Dateityp-Set', 'Ein neues Dateityp-Set anlegen');
-$GLOBALS['TL_LANG']['tl_dms_file_type_sets']['show']       = array('Dateityp-Set Details', 'Details des Dateityp-Set ID %s anzeigen');
-$GLOBALS['TL_LANG']['tl_dms_file_type_sets']['edit']       = array('Dateityp-Set bearbeiten', 'Dateityp-Set ID %s bearbeiten');
-$GLOBALS['TL_LANG']['tl_dms_file_type_sets']['copy']       = array('Dateityp-Set duplizieren', 'Dateityp-Set ID %s duplizieren');
-$GLOBALS['TL_LANG']['tl_dms_file_type_sets']['delete']     = array('Dateityp-Set löschen', 'Dateityp-Set ID %s löschen');
-$GLOBALS['TL_LANG']['tl_dms_file_type_sets']['toggle']     = array('Dateityp-Set veröffentlichen/unveröffentlichen', 'Dateityp-Set ID %s veröffentlichen/unveröffentlichen');
+$GLOBALS['TL_LANG']['tl_dms_file_type_sets']['new']    = array('Neues Dateityp-Set', 'Ein neues Dateityp-Set anlegen');
+$GLOBALS['TL_LANG']['tl_dms_file_type_sets']['show']   = array('Dateityp-Set Details', 'Details des Dateityp-Set ID %s anzeigen');
+$GLOBALS['TL_LANG']['tl_dms_file_type_sets']['edit']   = array('Dateityp-Set bearbeiten', 'Dateityp-Set ID %s bearbeiten');
+$GLOBALS['TL_LANG']['tl_dms_file_type_sets']['copy']   = array('Dateityp-Set duplizieren', 'Dateityp-Set ID %s duplizieren');
+$GLOBALS['TL_LANG']['tl_dms_file_type_sets']['delete'] = array('Dateityp-Set löschen', 'Dateityp-Set ID %s löschen');
+$GLOBALS['TL_LANG']['tl_dms_file_type_sets']['toggle'] = array('Dateityp-Set veröffentlichen/unveröffentlichen', 'Dateityp-Set ID %s veröffentlichen/unveröffentlichen');
 
 ?>

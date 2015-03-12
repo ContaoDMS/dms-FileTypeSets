@@ -1,8 +1,8 @@
-<?php if (!defined('TL_ROOT')) die('You can not access this file directly!');
+<?php
 
 /**
  * Contao Open Source CMS
- * Copyright (C) 2005-2014 Leo Feyer
+ * Copyright (C) 2005-2015 Leo Feyer
  *
  * Formerly known as TYPOlight Open Source CMS.
  *
@@ -21,7 +21,7 @@
  * Software Foundation website at <http://www.gnu.org/licenses/>.
  *
  * PHP version 5
- * @copyright  Cliff Parnitzky 2014
+ * @copyright  Cliff Parnitzky 2014-2015
  * @author     Cliff Parnitzky
  * @package    DocumentManagementSystemFileTypeSets
  * @license    LGPL
@@ -36,7 +36,14 @@ $GLOBALS['TL_DCA']['tl_dms_file_type_sets'] = array
 	'config' => array
 	(
 		'dataContainer'               => 'Table',
-		'enableVersioning'            => true
+		'enableVersioning'            => true,
+		'sql' => array
+		(
+			'keys' => array
+			(
+				'id' => 'primary'
+			)
+		)
 	),
 	
 	// List
@@ -111,6 +118,14 @@ $GLOBALS['TL_DCA']['tl_dms_file_type_sets'] = array
 	// Fields
 	'fields' => array
 	(
+		'id' => array
+		(
+			'sql'                     => "int(10) unsigned NOT NULL auto_increment"
+		),
+		'tstamp' => array
+		(
+			'sql'                     => "int(10) unsigned NOT NULL default '0'"
+		),
 		'name' => array
 		(
 			'label'                   => &$GLOBALS['TL_LANG']['tl_dms_file_type_sets']['name'],
@@ -119,7 +134,8 @@ $GLOBALS['TL_DCA']['tl_dms_file_type_sets'] = array
 			'search'                  => true,
 			'sorting'                 => true,
 			'inputType'               => 'text',
-			'eval'                    => array('mandatory'=>true, 'maxlength'=>255, 'unique'=>true, 'doNotCopy'=>true)
+			'eval'                    => array('mandatory'=>true, 'maxlength'=>255, 'unique'=>true, 'doNotCopy'=>true),
+			'sql'                     => "varchar(255) NOT NULL default ''"
 		),
 		'description' => array
 		(
@@ -127,7 +143,8 @@ $GLOBALS['TL_DCA']['tl_dms_file_type_sets'] = array
 			'exclude'                 => true,
 			'search'                  => true,
 			'inputType'               => 'textarea',
-			'eval'                    => array('style'=>'height:60px;')
+			'eval'                    => array('style'=>'height:60px;'),
+			'sql'                     => "text NULL"
 		),
 		'file_types' => array
 		(
@@ -138,7 +155,8 @@ $GLOBALS['TL_DCA']['tl_dms_file_type_sets'] = array
 			'sorting'                 => true,
 			'inputType'               => 'text',
 			'eval'                    => array('mandatory'=>true, 'maxlength'=>255, 'tl_class'=>'w50', 'doNotSaveEmpty'=>true),
-			'save_callback'           => array(array('tl_dms_file_type_sets', 'saveFileTypes'))
+			'save_callback'           => array(array('tl_dms_file_type_sets', 'saveFileTypes')),
+			'sql'                     => "varchar(255) NOT NULL default ''"
 		),
 		'published' => array
 		(
@@ -148,7 +166,8 @@ $GLOBALS['TL_DCA']['tl_dms_file_type_sets'] = array
 			'search'                  => true,
 			'sorting'                 => true,
 			'inputType'               => 'checkbox',
-			'eval'                    => array('doNotCopy'=>true)
+			'eval'                    => array('doNotCopy'=>true),
+			'sql'                     => "char(1) NOT NULL default ''"
 		)
 	)
 );
@@ -157,7 +176,7 @@ $GLOBALS['TL_DCA']['tl_dms_file_type_sets'] = array
  * Class tl_dms_file_type_sets
  *
  * Provide miscellaneous methods that are used by the data configuration array.
- * @copyright  Cliff Parnitzky 2014
+ * @copyright  Cliff Parnitzky 2014-2015
  * @author     Cliff Parnitzky
  * @package    Controller
  */
@@ -189,7 +208,7 @@ class tl_dms_file_type_sets extends Backend
 			$image = 'file_type_sets_.png';
 		}
 		
-		$args[0] = sprintf('<div class="list_icon_new" style="background-image:url(\'system/modules/DocumentManagementSystemFileTypeSets/html/%s\'); height: 16px;">&nbsp;</div>', $image);
+		$args[0] = sprintf('<div class="list_icon_new" style="background-image:url(\'system/modules/DocumentManagementSystemFileTypeSets/assets/%s\'); height: 16px;">&nbsp;</div>', $image);
 		return $args;
 	}
 	

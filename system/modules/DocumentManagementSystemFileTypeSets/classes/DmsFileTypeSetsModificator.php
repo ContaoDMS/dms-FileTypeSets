@@ -1,8 +1,8 @@
-<?php if (!defined('TL_ROOT')) die('You can not access this file directly!');
+<?php
 
 /**
  * Contao Open Source CMS
- * Copyright (C) 2005-2014 Leo Feyer
+ * Copyright (C) 2005-2015 Leo Feyer
  *
  * Formerly known as TYPOlight Open Source CMS.
  *
@@ -21,17 +21,22 @@
  * Software Foundation website at <http://www.gnu.org/licenses/>.
  *
  * PHP version 5
- * @copyright  Cliff Parnitzky 2014
+ * @copyright  Cliff Parnitzky 2014-2015
  * @author     Cliff Parnitzky
  * @package    DocumentManagementSystemFileTypeSets
  * @license    LGPL
  */
 
 /**
+ * Run in a custom namespace, so the class can be replaced
+ */
+namespace ContaoDMS;
+
+/**
  * Class DmsFileTypeSetsModificator
  * Modifies the files types.
  */
-class DmsFileTypeSetsModificator extends Controller
+class DmsFileTypeSetsModificator extends \Controller
 {
 	/**
 	 * Current object instance (do not remove)
@@ -80,7 +85,7 @@ class DmsFileTypeSetsModificator extends Controller
 	/**
 	 * Modify loaded categories.
 	 */
-	public function addFileTypeSetsToCategory(Category $category, Database_Result $dbResultCategory)
+	public function addFileTypeSetsToCategory(\Category $category, \Database_Result $dbResultCategory)
 	{
 		$arrFileTypesOfSets = array();
 		$arrFileTypeSetIds = deserialize($dbResultCategory->file_type_sets);
@@ -93,7 +98,7 @@ class DmsFileTypeSetsModificator extends Controller
 		
 		}
 		
-		$arrFileTypes = DmsUtils::getUniqueFileTypes($category->fileTypes, $arrFileTypesOfSets);
+		$arrFileTypes = \DmsUtils::getUniqueFileTypes($category->fileTypes, $arrFileTypesOfSets);
 		
 		$category->fileTypes = implode(",", $arrFileTypes);
 		return $category;

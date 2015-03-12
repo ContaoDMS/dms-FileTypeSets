@@ -1,8 +1,8 @@
-<?php if (!defined('TL_ROOT')) die('You can not access this file directly!');
+<?php
 
 /**
  * Contao Open Source CMS
- * Copyright (C) 2005-2014 Leo Feyer
+ * Copyright (C) 2005-2015 Leo Feyer
  *
  * Formerly known as TYPOlight Open Source CMS.
  *
@@ -21,7 +21,7 @@
  * Software Foundation website at <http://www.gnu.org/licenses/>.
  *
  * PHP version 5
- * @copyright  Cliff Parnitzky 2014
+ * @copyright  Cliff Parnitzky 2014-2015
  * @author     Cliff Parnitzky
  * @package    DocumentManagementSystemFileTypeSets
  * @license    LGPL
@@ -45,11 +45,11 @@ $GLOBALS['TL_LANG']['tl_dms_file_type_sets']['publish_legend']    = 'Publish set
 /**
  * Buttons
  */
-$GLOBALS['TL_LANG']['tl_dms_file_type_sets']['new']        = array('New file type set', 'Create a new file type set');
-$GLOBALS['TL_LANG']['tl_dms_file_type_sets']['show']       = array('File type set details', 'Show the details of file type set ID %s');
-$GLOBALS['TL_LANG']['tl_dms_file_type_sets']['edit']       = array('Edit file type set', 'Edit file type set ID %s');
-$GLOBALS['TL_LANG']['tl_dms_file_type_sets']['copy']       = array('Duplicate file type set', 'Duplicate file type set ID %s');
-$GLOBALS['TL_LANG']['tl_dms_file_type_sets']['delete']     = array('Delete file type set', 'Delete file type set ID %s');
-$GLOBALS['TL_LANG']['tl_dms_file_type_sets']['toggle']     = array('Publish/unpublish file type set', 'Publish/unpublish file type set ID %s');
+$GLOBALS['TL_LANG']['tl_dms_file_type_sets']['new']    = array('New file type set', 'Create a new file type set');
+$GLOBALS['TL_LANG']['tl_dms_file_type_sets']['show']   = array('File type set details', 'Show the details of file type set ID %s');
+$GLOBALS['TL_LANG']['tl_dms_file_type_sets']['edit']   = array('Edit file type set', 'Edit file type set ID %s');
+$GLOBALS['TL_LANG']['tl_dms_file_type_sets']['copy']   = array('Duplicate file type set', 'Duplicate file type set ID %s');
+$GLOBALS['TL_LANG']['tl_dms_file_type_sets']['delete'] = array('Delete file type set', 'Delete file type set ID %s');
+$GLOBALS['TL_LANG']['tl_dms_file_type_sets']['toggle'] = array('Publish/unpublish file type set', 'Publish/unpublish file type set ID %s');
 
 ?>

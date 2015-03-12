@@ -1,8 +1,8 @@
-<?php if (!defined('TL_ROOT')) die('You can not access this file directly!');
+<?php
 
 /**
  * Contao Open Source CMS
- * Copyright (C) 2005-2014 Leo Feyer
+ * Copyright (C) 2005-2015 Leo Feyer
  *
  * Formerly known as TYPOlight Open Source CMS.
  *
@@ -21,7 +21,7 @@
  * Software Foundation website at <http://www.gnu.org/licenses/>.
  *
  * PHP version 5
- * @copyright  Cliff Parnitzky 2014
+ * @copyright  Cliff Parnitzky 2014-2015
  * @author     Cliff Parnitzky
  * @package    DocumentManagementSystemFileTypeSets
  * @license    LGPL
@@ -33,7 +33,7 @@
 $GLOBALS['BE_MOD']['dms']['tl_dms_file_type_sets'] = array
 (
 	'tables'     => array('tl_dms_file_type_sets'),
-	'icon'       => 'system/modules/DocumentManagementSystemFileTypeSets/html/file_type_sets.png'
+	'icon'       => 'system/modules/DocumentManagementSystemFileTypeSets/assets/file_type_sets.png'
 );
 
 /**
