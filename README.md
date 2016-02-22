@@ -26,13 +26,15 @@ Compatibility
 -------------
 
 - min. Contao version: >= 3.2.0
-- max. Contao version: <  3.5.0
+- max. Contao version: <  3.6.0
 
 
 Dependency
 ----------
 
-- This extension is dependent on the following extensions: [[contao-dms/dms]](https://packagist.org/packages/contao-dms/dms)
+This extension is dependent on the following extensions:
+
+- [[contao-dms/dms]](https://packagist.org/packages/contao-dms/dms)
 
 
 Screenshots
