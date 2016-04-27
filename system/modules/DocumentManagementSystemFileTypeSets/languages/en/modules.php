@@ -35,6 +35,6 @@ $GLOBALS['TL_LANG']['MOD']['DocumentManagementSystemFileTypeSets'] = array('DMS 
 /**
  * Back end modules
  */
-$GLOBALS['TL_LANG']['MOD']['tl_dms_file_type_sets'] = array('File type sets', 'Create and manage the file type sets.');
+$GLOBALS['TL_LANG']['MOD']['dms_file_type_sets'] = array('File type sets', 'Create and manage the file type sets.');
 
 ?>

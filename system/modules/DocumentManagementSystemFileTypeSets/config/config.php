@@ -30,7 +30,7 @@
 /**
  * Backend modules
  */
-$GLOBALS['BE_MOD']['dms']['tl_dms_file_type_sets'] = array
+$GLOBALS['BE_MOD']['dms']['dms_file_type_sets'] = array
 (
 	'tables'     => array('tl_dms_file_type_sets'),
 	'icon'       => 'system/modules/DocumentManagementSystemFileTypeSets/assets/file_type_sets.png'
