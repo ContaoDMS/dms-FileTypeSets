@@ -2,7 +2,7 @@
 
 /**
  * Contao Open Source CMS
- * Copyright (C) 2005-2015 Leo Feyer
+ * Copyright (C) 2005-2016 Leo Feyer
  *
  * Formerly known as TYPOlight Open Source CMS.
  *
@@ -21,24 +21,43 @@
  * Software Foundation website at <http://www.gnu.org/licenses/>.
  *
  * PHP version 5
- * @copyright  Cliff Parnitzky 2014-2015
+ * @copyright  Cliff Parnitzky 2016-2016
  * @author     Cliff Parnitzky
  * @package    DocumentManagementSystemFileTypeSets
  * @license    LGPL
  */
 
 /**
- * Backend modules
+ * Run in a custom namespace, so the class can be replaced
  */
-$GLOBALS['BE_MOD']['dms']['dms_file_type_sets'] = array
-(
-	'tables'     => array('tl_dms_file_type_sets'),
-	'icon'       => 'system/modules/DocumentManagementSystemFileTypeSets/assets/file_type_sets.png'
-);
+namespace ContaoDMS;
 
 /**
- * Hooks
+ * Class DmsFileTypeSetsHelper
+ * Modifies the files types.
  */
-$GLOBALS['TL_HOOKS']['dmsModifyLoadedCategory'][]   = array('DmsFileTypeSetsModificator', 'addFileTypeSetsToCategory');
- 
+class DmsFileTypeSetsHelper extends \Controller
+{
+	const MAX_LENGHT = 50;
+	const AND_SO_ON = " ...";
+	
+	/**
+	 * Return the current object instance (Singleton)
+	 * @return DmsFileTypeSetsModificator
+	 */
+	public static function getCuttedAllowedFileTypes($strAllowedFileTypes)
+	{
+		if ($strAllowedFileTypes == null)
+		{
+			return "";
+		}
+		else if (strlen($strAllowedFileTypes) <= self::MAX_LENGHT)
+		{
+			return $strAllowedFileTypes;
+		}
+
+		return substr($strAllowedFileTypes, 0, self::MAX_LENGHT - strlen(self::AND_SO_ON)) . self::AND_SO_ON;
+	}
+}
+
 ?>

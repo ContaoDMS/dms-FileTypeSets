@@ -209,6 +209,9 @@ class tl_dms_file_type_sets extends Backend
 		}
 		
 		$args[0] = sprintf('<div class="list_icon_new" style="background-image:url(\'system/modules/DocumentManagementSystemFileTypeSets/assets/%s\'); height: 16px;">&nbsp;</div>', $image);
+		
+		$args[2] = \ContaoDMS\DmsFileTypeSetsHelper::getCuttedAllowedFileTypes($row['file_types']);
+		
 		return $args;
 	}
 	
@@ -268,7 +271,7 @@ class tl_dms_file_type_sets extends Backend
 			foreach ($GLOBALS['TL_DCA']['tl_dms_file_type_sets']['fields']['published']['save_callback'] as $callback)
 			{
 				$this->import($callback[0]);
-				$blnVisible = $this->$callback[0]->$callback[1]($blnVisible, $this);
+				$blnVisible = $this->{$callback[0]}->{$callback[1]}($blnVisible, $this);
 			}
 		}
 

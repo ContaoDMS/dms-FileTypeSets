@@ -76,7 +76,7 @@ class tl_dms_categories_dms_file_type_sets extends tl_dms_categories
 		
 		while($objFileTypeSets->next())
 		{
-			$arrFileTypeSets[$objFileTypeSets->id] = $objFileTypeSets->name . "<span style=\"color:#b3b3b3; padding-left:3px;\">[" . $objFileTypeSets->file_types .  "]</span>";
+			$arrFileTypeSets[$objFileTypeSets->id] = $objFileTypeSets->name . "<span style=\"color:#b3b3b3; padding-left:3px;\">[" . \ContaoDMS\DmsFileTypeSetsHelper::getCuttedAllowedFileTypes($objFileTypeSets->file_types) .  "]</span>";
 		}
 		
 		return $arrFileTypeSets;
