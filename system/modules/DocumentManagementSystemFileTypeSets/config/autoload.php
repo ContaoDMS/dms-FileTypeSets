@@ -5,9 +5,7 @@
  *
  * Copyright (c) 2005-2016 Leo Feyer
  *
- * @package DocumentManagementSystemFileTypeSets
- * @link    https://contao.org
- * @license http://www.gnu.org/licenses/lgpl-3.0.html LGPL
+ * @license LGPL-3.0+
  */
 
 
@@ -26,6 +24,5 @@ ClassLoader::addNamespaces(array
 ClassLoader::addClasses(array
 (
 	// Classes
-	'ContaoDMS\DmsFileTypeSetsHelper'      => 'system/modules/DocumentManagementSystemFileTypeSets/classes/DmsFileTypeSetsHelper.php',
 	'ContaoDMS\DmsFileTypeSetsModificator' => 'system/modules/DocumentManagementSystemFileTypeSets/classes/DmsFileTypeSetsModificator.php',
 ));

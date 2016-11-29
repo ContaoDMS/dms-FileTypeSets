@@ -76,7 +76,7 @@ class tl_dms_categories_dms_file_type_sets extends tl_dms_categories
 		
 		while($objFileTypeSets->next())
 		{
-			$arrFileTypeSets[$objFileTypeSets->id] = $objFileTypeSets->name . "<span style=\"color:#b3b3b3; padding-left:3px;\">[" . \ContaoDMS\DmsFileTypeSetsHelper::getCuttedAllowedFileTypes($objFileTypeSets->file_types) .  "]</span>";
+			$arrFileTypeSets[$objFileTypeSets->id] = $objFileTypeSets->name . "<span style=\"color:#b3b3b3; padding-left:3px;\" title=\"" . $objFileTypeSets->file_types . "\">[" . \ContaoDMS\DmsUtils::getCuttedAllowedFileTypes($objFileTypeSets->file_types) .  "]</span>";
 		}
 		
 		return $arrFileTypeSets;
@@ -104,11 +104,11 @@ class tl_dms_categories_dms_file_type_sets extends tl_dms_categories
 			}
 		}
 		
-		$arrFileTypes = DmsUtils::getUniqueFileTypes($row['file_types'], $arrFileTypesOfSets);
+		$arrFileTypes = \ContaoDMS\DmsUtils::getUniqueFileTypes($row['file_types'], $arrFileTypesOfSets);
 		
 		if (!empty($arrFileTypes))
 		{
-			$label .= '<span style="color:#b3b3b3; padding-left:3px;">[' . implode(",", $arrFileTypes) . ']</span>';;
+			$row['file_types'] = implode(",", $arrFileTypes);
 		}
 		
 		return parent::addIcon($row, $label, $dc, $imageAttribute, $blnReturnImage, $blnProtected);
