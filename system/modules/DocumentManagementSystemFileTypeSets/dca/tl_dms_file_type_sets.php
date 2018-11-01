@@ -201,14 +201,14 @@ class tl_dms_file_type_sets extends Backend
 	 */
 	public function addIcon($row, $label, DataContainer $dc, $args)
 	{
-		$image = 'file_type_sets.png';
+		$image = 'file_type_sets';
 		
 		if (!$row['published'])
 		{
-			$image = 'file_type_sets_.png';
+			$image = 'file_type_sets_';
 		}
 		
-		$args[0] = sprintf('<div class="list_icon_new" style="background-image:url(\'system/modules/DocumentManagementSystemFileTypeSets/assets/%s\'); height: 16px;" data-icon="system/modules/DocumentManagementSystemFileTypeSets/assets/%s" data-icon-disabled="system/modules/DocumentManagementSystemFileTypeSets/assets/%s">&nbsp;</div>', $image, rtrim($image, '_'), rtrim($image, '_') . '_');
+		$args[0] = sprintf('<div class="list_icon_new" style="background-image:url(\'system/modules/DocumentManagementSystemFileTypeSets/assets/%s.png\'); height: 16px;" data-icon="system/modules/DocumentManagementSystemFileTypeSets/assets/%s.png" data-icon-disabled="system/modules/DocumentManagementSystemFileTypeSets/assets/%s.png">&nbsp;</div>', $image, rtrim($image, '_'), rtrim($image, '_') . '_');
 		
 		$args[2] = \ContaoDMS\DmsFileTypeSetsHelper::getCuttedAllowedFileTypes($row['file_types']);
 		
