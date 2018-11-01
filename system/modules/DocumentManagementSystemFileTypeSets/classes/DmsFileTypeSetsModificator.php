@@ -85,7 +85,7 @@ class DmsFileTypeSetsModificator extends \Controller
 	/**
 	 * Modify loaded categories.
 	 */
-	public function addFileTypeSetsToCategory(\Category $category, \Database_Result $dbResultCategory)
+	public function addFileTypeSetsToCategory(\Category $category, $dbResultCategory)
 	{
 		$arrFileTypesOfSets = array();
 		$arrFileTypeSetIds = deserialize($dbResultCategory->file_type_sets);
