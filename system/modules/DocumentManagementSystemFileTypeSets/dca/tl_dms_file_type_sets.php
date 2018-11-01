@@ -208,7 +208,7 @@ class tl_dms_file_type_sets extends Backend
 			$image = 'file_type_sets_.png';
 		}
 		
-		$args[0] = sprintf('<div class="list_icon_new" style="background-image:url(\'system/modules/DocumentManagementSystemFileTypeSets/assets/%s\'); height: 16px;" data-icon="system/modules/DocumentManagementSystemFileTypeSets/assets/%s" data-icon-disabled="system/modules/DocumentManagementSystemFileTypeSets/assets/%s">&nbsp;</div>', $image, $image, $image);
+		$args[0] = sprintf('<div class="list_icon_new" style="background-image:url(\'system/modules/DocumentManagementSystemFileTypeSets/assets/%s\'); height: 16px;" data-icon="system/modules/DocumentManagementSystemFileTypeSets/assets/%s" data-icon-disabled="system/modules/DocumentManagementSystemFileTypeSets/assets/%s">&nbsp;</div>', $image, rtrim($image, '_'), rtrim($image, '_') . '_');
 		
 		$args[2] = \ContaoDMS\DmsFileTypeSetsHelper::getCuttedAllowedFileTypes($row['file_types']);
 		
