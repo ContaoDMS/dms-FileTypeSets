@@ -205,7 +205,7 @@ class tl_dms_file_type_sets extends Backend
 		
 		if (!$row['published'])
 		{
-			$image = 'file_type_sets_';
+			$image .= '_';
 		}
 		
 		$args[0] = sprintf('<div class="list_icon_new" style="background-image:url(\'system/modules/DocumentManagementSystemFileTypeSets/assets/%s.png\'); height: 16px;" data-icon="system/modules/DocumentManagementSystemFileTypeSets/assets/%s.png" data-icon-disabled="system/modules/DocumentManagementSystemFileTypeSets/assets/%s.png">&nbsp;</div>', $image, rtrim($image, '_'), rtrim($image, '_') . '_');
