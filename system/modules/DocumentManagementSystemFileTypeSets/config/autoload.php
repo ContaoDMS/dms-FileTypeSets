@@ -26,6 +26,5 @@ ClassLoader::addNamespaces(array
 ClassLoader::addClasses(array
 (
 	// Classes
-	'ContaoDMS\DmsFileTypeSetsHelper'      => 'system/modules/DocumentManagementSystemFileTypeSets/classes/DmsFileTypeSetsHelper.php',
 	'ContaoDMS\DmsFileTypeSetsModificator' => 'system/modules/DocumentManagementSystemFileTypeSets/classes/DmsFileTypeSetsModificator.php',
 ));
