@@ -30,7 +30,6 @@
 // List
 $GLOBALS['TL_DCA']['tl_dms_categories']['list']['label']['fields'] = array('name');
 $GLOBALS['TL_DCA']['tl_dms_categories']['list']['label']['format'] = '<span style="padding-left:5px;">%s</span>';
-$GLOBALS['TL_DCA']['tl_dms_categories']['list']['label']['label_callback'] = array('tl_dms_categories_dms_file_type_sets', 'addIcon');
 
 // Palettes
 $GLOBALS['TL_DCA']['tl_dms_categories']['palettes']['default'] = str_replace('file_types_inherit', 'file_types_inherit,file_type_sets', $GLOBALS['TL_DCA']['tl_dms_categories']['palettes']['default']);
@@ -80,38 +79,6 @@ class tl_dms_categories_dms_file_type_sets extends tl_dms_categories
 		}
 		
 		return $arrFileTypeSets;
-	}
-	
-	/**
-	 * Add an image to each record
-	 * @param array
-	 * @param string
-	 * @return string
-	 */
-	public function addIcon($row, $label, DataContainer $dc=null, $imageAttribute='', $blnReturnImage=false, $blnProtected=false)
-	{
-		$arrFileTypesOfSets = array();
-		
-		$arrFileTypeSetIds = deserialize($row['file_type_sets']);
-		if (!empty($arrFileTypeSetIds))
-		{
-			$objFileTypeSets = $this->Database->prepare("SELECT file_types FROM tl_dms_file_type_sets WHERE id IN (" . implode(",", $arrFileTypeSetIds) . ") AND published = 1")
-								->execute();
-		
-			while($objFileTypeSets->next())
-			{
-				$arrFileTypesOfSets = array_merge($arrFileTypesOfSets, explode(",", $objFileTypeSets->file_types));
-			}
-		}
-		
-		$arrFileTypes = DmsUtils::getUniqueFileTypes($row['file_types'], $arrFileTypesOfSets);
-		
-		if (!empty($arrFileTypes))
-		{
-			$label .= '<span style="color:#b3b3b3; padding-left:3px;">[' . implode(",", $arrFileTypes) . ']</span>';;
-		}
-		
-		return parent::addIcon($row, $label, $dc, $imageAttribute, $blnReturnImage, $blnProtected);
 	}
 }
 
