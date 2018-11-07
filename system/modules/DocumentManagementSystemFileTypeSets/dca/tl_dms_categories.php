@@ -21,7 +21,7 @@
  * Software Foundation website at <http://www.gnu.org/licenses/>.
  *
  * PHP version 5
- * @copyright  Cliff Parnitzky 2014-2015
+ * @copyright  Cliff Parnitzky 2014-2018
  * @author     Cliff Parnitzky
  * @package    DocumentManagementSystemFileTypeSets
  * @license    LGPL
@@ -37,49 +37,49 @@ $GLOBALS['TL_DCA']['tl_dms_categories']['palettes']['default'] = str_replace('fi
 // Fields
 $GLOBALS['TL_DCA']['tl_dms_categories']['fields']['file_type_sets'] = array
 (
-	'label'                   => &$GLOBALS['TL_LANG']['tl_dms_categories']['file_type_sets'],
-	'exclude'                 => true,
-	'inputType'               => 'checkbox',
-	'options_callback'        => array('tl_dms_categories_dms_file_type_sets', 'getActiveFileTypeSets'),
-	'eval'                    => array('tl_class'=>'w50 clr', 'multiple'=>true),
-	'sql'                     => "blob NULL"
+  'label'                   => &$GLOBALS['TL_LANG']['tl_dms_categories']['file_type_sets'],
+  'exclude'                 => true,
+  'inputType'               => 'checkbox',
+  'options_callback'        => array('tl_dms_categories_dms_file_type_sets', 'getActiveFileTypeSets'),
+  'eval'                    => array('tl_class'=>'w50 clr', 'multiple'=>true),
+  'sql'                     => "blob NULL"
 );
 
 /**
  * Class tl_dms_categories_dms_file_type_sets
  *
  * Provide miscellaneous methods that are used by the data configuration array.
- * @copyright  Cliff Parnitzky 2014-2015
+ * @copyright  Cliff Parnitzky 2014-2018
  * @author     Cliff Parnitzky
  * @package    Controller
  */
 class tl_dms_categories_dms_file_type_sets extends tl_dms_categories
 {
-	/**
-	 * Import the back end user object
-	 */
-	public function __construct()
-	{
-		parent::__construct();
-	}
-	
-	/**
-	 * Returns all active (published) file type sets
-	 */
-	public function getActiveFileTypeSets(DataContainer $dc)
-	{
-		$arrFileTypeSets = array();
-		
-		$objFileTypeSets = $this->Database->prepare("SELECT * FROM tl_dms_file_type_sets WHERE published = 1 ORDER BY name")
-								->execute();
-		
-		while($objFileTypeSets->next())
-		{
-			$arrFileTypeSets[$objFileTypeSets->id] = $objFileTypeSets->name . "<span style=\"color:#b3b3b3; padding-left:3px;\">[" . \ContaoDMS\DmsUtils::getCuttedAllowedFileTypes($objFileTypeSets->file_types) .  "]</span>";
-		}
-		
-		return $arrFileTypeSets;
-	}
+  /**
+   * Import the back end user object
+   */
+  public function __construct()
+  {
+    parent::__construct();
+  }
+  
+  /**
+   * Returns all active (published) file type sets
+   */
+  public function getActiveFileTypeSets(DataContainer $dc)
+  {
+    $arrFileTypeSets = array();
+    
+    $objFileTypeSets = $this->Database->prepare("SELECT * FROM tl_dms_file_type_sets WHERE published = 1 ORDER BY name")
+                ->execute();
+    
+    while($objFileTypeSets->next())
+    {
+      $arrFileTypeSets[$objFileTypeSets->id] = $objFileTypeSets->name . "<span style=\"color:#b3b3b3; padding-left:3px;\">[" . \ContaoDMS\DmsUtils::getCuttedAllowedFileTypes($objFileTypeSets->file_types) .  "]</span>";
+    }
+    
+    return $arrFileTypeSets;
+  }
 }
 
 ?>
