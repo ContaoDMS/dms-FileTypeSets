@@ -3,7 +3,8 @@
 	"description":"Provides file type sets for the Contao CMS.",
 	"keywords":["contao", "dms", "document", "management", "file type"],
 	"type":"contao-module",
-	"license":"LGPL-3.0+",
+	"homepage":"https://github.com/ContaoDMS",
+	"license":"LGPL-3.0-or-later",
 	"authors":[
 		{
 			"name":"Cliff Parnitzky",
@@ -18,8 +19,8 @@
 	},
 	"require":{
 		"php":">=5.3",
-		"contao/core":">=3.2.0,<3.6",
-		"contao-community-alliance/composer-plugin":"~2.0",
+		"contao/core-bundle":"~3.2 || ~4.4",
+		"contao-community-alliance/composer-plugin":"~2.4 || ~3.0",
 		"contao-dms/dms":"~3.2"
 	},
 	"conflict": {
