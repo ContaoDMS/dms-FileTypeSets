@@ -21,7 +21,7 @@
  * Software Foundation website at <http://www.gnu.org/licenses/>.
  *
  * PHP version 5
- * @copyright  Cliff Parnitzky 2014-2015
+ * @copyright  Cliff Parnitzky 2014-2018
  * @author     Cliff Parnitzky
  * @package    DocumentManagementSystemFileTypeSets
  * @license    LGPL
@@ -38,71 +38,71 @@ namespace ContaoDMS;
  */
 class DmsFileTypeSetsModificator extends \Controller
 {
-	/**
-	 * Current object instance (do not remove)
-	 * @var DmsFileTypeSetsModificator
-	 */
-	protected static $objInstance;
-	
-	/**
-	 * The List of published fil
-	 * @var array
-	 */
-	private $arrPublishedFileTypeSets = array();
+  /**
+   * Current object instance (do not remove)
+   * @var DmsFileTypeSetsModificator
+   */
+  protected static $objInstance;
+  
+  /**
+   * The List of published fil
+   * @var array
+   */
+  private $arrPublishedFileTypeSets = array();
 
-	/**
-	 * Initialize the object.
-	 */
-	protected function __construct()
-	{
-		parent::__construct();
+  /**
+   * Initialize the object.
+   */
+  protected function __construct()
+  {
+    parent::__construct();
 
-		$this->import('Database');
+    $this->import('Database');
 
-		$objFileTypeSets = $this->Database->prepare("SELECT id, file_types FROM tl_dms_file_type_sets WHERE published = 1")
-										  ->execute();
+    $objFileTypeSets = $this->Database->prepare("SELECT id, file_types FROM tl_dms_file_type_sets WHERE published = 1")
+                      ->execute();
 
-		while ($objFileTypeSets->next())
-		{
-			$this->arrPublishedFileTypeSets[$objFileTypeSets->id] = $objFileTypeSets->file_types;
-		}
-	}
+    while ($objFileTypeSets->next())
+    {
+      $this->arrPublishedFileTypeSets[$objFileTypeSets->id] = $objFileTypeSets->file_types;
+    }
+  }
 
-	/**
-	 * Return the current object instance (Singleton)
-	 * @return DmsFileTypeSetsModificator
-	 */
-	public static function getInstance()
-	{
-		if (!is_object(self::$objInstance))
-		{
-			self::$objInstance = new self();
-		}
+  /**
+   * Return the current object instance (Singleton)
+   * @return DmsFileTypeSetsModificator
+   */
+  public static function getInstance()
+  {
+    if (!is_object(self::$objInstance))
+    {
+      self::$objInstance = new self();
+    }
 
-		return self::$objInstance;
-	}
+    return self::$objInstance;
+  }
 
-	/**
-	 * Modify loaded categories.
-	 */
-	public function addFileTypeSetsToCategory(\Category $category, \Database_Result $dbResultCategory)
-	{
-		$arrFileTypesOfSets = array();
-		$arrFileTypeSetIds = deserialize($dbResultCategory->file_type_sets);
-		if (!empty($arrFileTypeSetIds))
-		{
-			foreach($arrFileTypeSetIds as $arrFileTypeSetId)
-			{
-				$arrFileTypesOfSets = array_merge($arrFileTypesOfSets, explode(",", $this->arrPublishedFileTypeSets[$arrFileTypeSetId]));
-			}
-		
-		}
-		
-		$arrFileTypes = \DmsUtils::getUniqueFileTypes($category->fileTypes, $arrFileTypesOfSets);
-		
-		$category->fileTypes = implode(",", $arrFileTypes);
-		return $category;
-	}
+  /**
+   * Modify loaded categories.
+   */
+  public function addFileTypeSetsToCategory(\Category $category, $dbResultCategory)
+  {
+    $arrFileTypesOfSets = array();
+    $arrFileTypeSetIds = deserialize($dbResultCategory->file_type_sets);
+    if (!empty($arrFileTypeSetIds))
+    {
+      foreach($arrFileTypeSetIds as $arrFileTypeSetId)
+      {
+        $arrFileTypesOfSets = array_merge($arrFileTypesOfSets, explode(",", $this->arrPublishedFileTypeSets[$arrFileTypeSetId]));
+      }
+    
+    }
+    
+    $arrFileTypes = \DmsUtils::getUniqueFileTypes($category->fileTypes, $arrFileTypesOfSets);
+    
+    $category->fileTypes = implode(",", $arrFileTypes);
+    return $category;
+  }
 }
 
 ?>
